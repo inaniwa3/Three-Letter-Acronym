@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>任意三文字検索</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <link rel="icon" href="favicon.ico">
+    <!-- og -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="@inaniwa3">
+    <meta property="og:title" content="任意三文字検索">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://inaniwa3.github.io/Three-Letter-Acronym/">
+    <meta property="og:image" content="https://inaniwa3.github.io/Three-Letter-Acronym/og.png">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #tla {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: serif;
+        font-size: 25vmin;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="tla"></div>
+    <script>
+      function tla() {
+        let q = "";
+        for (let i = 0; i < 3; i++) {
+          q += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[Math.floor(Math.random() * 26)];
+        }
+        return q;
+      }
+      let c = 0;
+      function anm() {
+        document.getElementById('tla').textContent = tla();
+        if (++c > 30) {
+          clearInterval(h);
+          setTimeout(jmp, 1500);
+        }
+      }
+      function jmp() {
+        let q = document.getElementById('tla').textContent;
+        window.location.href = "https://duckduckgo.com/?kl=jp-jp&q=!ducky+" + q;
+      }
+      let h = setInterval(anm, 16);
+    </script>
+  </body>
+</html>
